@@ -1,0 +1,6 @@
+.env
+local.settings.json
+folio-assist/
+.pytest_cache/
+__pycache__/
+*/__pycache__/
