@@ -40,8 +40,11 @@ jobs:
           source /tmp/venv/bin/activate
           pytest
 
-      - name: Remove venv before deployment
-        run: rm -rf /tmp/venv
+      - name: Clean up before deployment
+        run: |
+          rm -rf /tmp/venv
+          find . -type d -name "__pycache__" -exec rm -rf {} +
+          rm -rf .pytest_cache
 
       - name: Deploy to Azure Functions
         uses: Azure/functions-action@v1
