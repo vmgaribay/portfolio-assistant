@@ -30,8 +30,8 @@ jobs:
       - name: Lint with flake8
         run: |
           pip install flake8
-          flake8 ../../src/portfolio-assistant
-          flake8 ../../ChatFunction
+          flake8 ./src/portfolio-assistant
+          flake8 ./ChatFunction
 
       - name: Run tests
         run: pytest
