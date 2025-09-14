@@ -37,7 +37,7 @@ jobs:
         run: pytest
 
       - name: Remove venv before deployment
-        run: rm -rf .venv
+        run: rm -rf venv
 
       - name: Deploy to Azure Functions
         uses: Azure/functions-action@v1
