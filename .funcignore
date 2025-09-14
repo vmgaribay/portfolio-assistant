@@ -1,0 +1,9 @@
+.git/
+.github/
+tests/
+.pytest_cache/
+LICENSE
+README.md
+pytest.ini
+.funcignore
+.gitignore
