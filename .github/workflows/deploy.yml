@@ -24,6 +24,8 @@ jobs:
 
       - name: Install dependencies
         run: |
+          python -m venv /tmp/venv
+          source /tmp/venv/bin/activate
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
@@ -37,7 +39,7 @@ jobs:
         run: pytest
 
       - name: Remove venv before deployment
-        run: rm -rf venv
+        run: rm -rf /tmp/venv
 
       - name: Deploy to Azure Functions
         uses: Azure/functions-action@v1
