@@ -52,7 +52,7 @@ jobs:
           mkdir -p package
           cp host.json requirements.txt package/
           cp -r chat_function package/chat_function
-          cp -r src package/src
+          cp -r src/portfolio_assistant package/portfolio_assistant
 
       - name: Deploy to Azure Functions
         uses: Azure/functions-action@v1
