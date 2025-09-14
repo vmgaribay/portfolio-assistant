@@ -3,24 +3,24 @@
 This is a conversational assistant developed to answer questions about my portfolio and qualifications. It utilizes Azure Functions, Python, and Azure AI Foundry and is deployed via GitHub Actions.  
 
 ## Project Structure
-├── host.json # Azure Functions host configuration
-├── local.settings.json # Local environment variables (not included in repository, not for production)
-├── requirements.txt # Dependencies
-├── .github/workflows/ # GitHub Actions pipeline
-│ └── deploy.yml
-├── ChatFunction/ # Azure Function entrypoint
-│ ├── __init__.py
-│ └── function.json
-├── src/portfolio_assistant/
-│ ├── agent_client.py # Client for Azure AI Foundry chat agent
-│ ├── config.py 
-│ ├── utils.py 
-│ ├── search_client.py # (Added feature coming soon!)
-│ └── __init__.py
-└── tests/ # Unit tests (pytest)
-├── test_agent_client.py
-├── test_api.py
-└── test_search_client.py # (Added feature coming soon!)
+├── host.json # Azure Functions host configuration  
+├── local.settings.json # Local environment variables (not included in repository, not for production)  
+├── requirements.txt # Dependencies  
+├── .github/workflows/ # GitHub Actions pipeline  
+│ └── deploy.yml  
+├── ChatFunction/ # Azure Function entrypoint  
+│ ├── __init__.py  
+│ └── function.json  
+├── src/portfolio_assistant/  
+│ ├── agent_client.py # Client for Azure AI Foundry chat agent  
+│ ├── config.py  
+│ ├── utils.py   
+│ ├── search_client.py # (Added feature coming soon!)  
+│ └── __init__.py  
+└── tests/ # Unit tests (pytest)  
+├── test_agent_client.py  
+├── test_api.py  
+└── test_search_client.py # (Added feature coming soon!)  
 
 ## Setup Instructions
 ```bash
@@ -38,16 +38,18 @@ Prerequisites:
 - Python 3.10 
 - An endpoint and key for an Azure OpenAI resource with a deployed chat model
 
-Set up local environment variables in `local.settings.json`:
-{
-  "IsEncrypted": false,
-  "Values": {
-    "FUNCTIONS_WORKER_RUNTIME": "python",
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "AZURE_CHAT_AGENT_ENDPOINT": "<your-endpoint>",
-    "AZURE_CHAT_API_KEY": "<your-api-key>"
-  }
+Set up local environment variables in `local.settings.json`:  
+```json
+{  
+  "IsEncrypted": false,  
+  "Values": {  
+    "FUNCTIONS_WORKER_RUNTIME": "python",  
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",  
+    "AZURE_CHAT_AGENT_ENDPOINT": "<your-endpoint>",  
+    "AZURE_CHAT_API_KEY": "<your-api-key>"  
+  }  
 }
+```
 
 Run the Azure Function locally:
 ```bash
@@ -68,6 +70,7 @@ Push changes to the `main` branch to trigger deployment.
 ## Future Enhancements
 - Connect to Azure Cognitive Search for resume/project search
 - GitHub Pages portfolio chat interface
+- Diagram of architecture
 
 ## Contact
 Victoria Garibay, Ph.D. - [Contact Form](https://vmgaribay.github.io/portfolio/contact_form.html) | [GitHub Profile](https://github.com/vmgaribay)

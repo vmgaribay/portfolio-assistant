@@ -5,27 +5,28 @@ on:
   push:
     branches:
       - main   
-
+  workflow_dispatch:
+env:
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
+  PYTHON_VERSION: '3.10'
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Check out repo
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Set up Python and install dependencies
       - name: Python setup
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Run checks
       - name: Lint with flake8
         run: |
           pip install flake8
@@ -35,7 +36,6 @@ jobs:
       - name: Run tests
         run: pytest
 
-      # Deploy to Azure Functions
       - name: Deploy to Azure Functions
         uses: Azure/functions-action@v1
         with:
