@@ -68,9 +68,12 @@ The project is set up to deploy automatically to Azure Functions via GitHub Acti
 Push changes to the `main` branch to trigger deployment.
 
 ## Future Enhancements
-- Connect to Azure Cognitive Search for resume/project search
+- Connect to Azure Cognitive Search for resume/project search (now in main branch!)
 - GitHub Pages portfolio chat interface
 - Diagram of architecture
+
+## Acknowledgements
+This project was made possible by resources such as GitHub Copilot (GPT-5, GPT-4.1, Claude Sonnet 3.7), Azure Learn, too many YouTube tutorials, patience, and willpower.
 
 ## Contact
 Victoria Garibay, Ph.D. - [Contact Form](https://vmgaribay.github.io/portfolio/contact_form.html) | [GitHub Profile](https://github.com/vmgaribay)
