@@ -1,6 +1,6 @@
 # Portfolio Assistant
 
-This is a conversational assistant developed to answer questions about my portfolio and qualifications. It utilizes Azure Functions, Python, and Azure AI Foundry and is deployed via GitHub Actions.  
+This is a conversational assistant developed to answer questions about my portfolio and qualifications. It utilizes Azure Functions, Python, Azure AI Search, and Azure AI Foundry and is deployed via GitHub Actions.
 
 ## Project Structure
 ├── host.json # Azure Functions host configuration  
@@ -15,12 +15,12 @@ This is a conversational assistant developed to answer questions about my portfo
 │ ├── agent_client.py # Client for Azure AI Foundry chat agent  
 │ ├── config.py  
 │ ├── utils.py   
-│ ├── search_client.py # (Added feature coming soon!)  
+│ ├── search_client.py # Client to support Azure AI Search
 │ └── __init__.py  
 └── tests/ # Unit tests (pytest)  
 ├── test_agent_client.py  
 ├── test_api.py  
-└── test_search_client.py # (Added feature coming soon!)  
+└── test_search_client.py 
 
 ## Setup Instructions
 ```bash
@@ -31,7 +31,10 @@ source .venv/bin/activate   # or for Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 ## Running Locally
-It is necessary to create your own Azure OpenAI resource and deploy a chat model to obtain the endpoint and API key (I tested with 4.1-mini for a balance of cost and performance).
+It is necessary to create your own... 
+- Azure OpenAI resource and deploy a chat model to obtain the endpoint and API key (I tested with 4.1-mini for a balance of cost and performance).
+- Azure AI Search resource with semantic search capabilities.
+- An index populated with relevant documents including metadata for the added fields "topics" and "source" for best results. (I indexed an Azure blob storage container with PDFs and markdown files related to my portfolio content).
 
 Prerequisites:
 - Azure Functions Core Tools
@@ -46,7 +49,11 @@ Set up local environment variables in `local.settings.json`:
     "FUNCTIONS_WORKER_RUNTIME": "python",  
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",  
     "AZURE_CHAT_AGENT_ENDPOINT": "<your-endpoint>",  
-    "AZURE_CHAT_API_KEY": "<your-api-key>"  
+    "AZURE_CHAT_API_KEY": "<your-api-key>",
+    "AZURE_SEARCH_ENDPOINT": "<your-search-endpoint>",  
+    "AZURE_SEARCH_API_KEY": "<your-search-api-key>",  
+    "AZURE_SEARCH_INDEX_NAME": "<your-search-index-name>",
+    "AZURE_SEARCH_API_VERSION": "<latest stable version>"
   }  
 }
 ```
@@ -66,11 +73,14 @@ The project is set up to deploy automatically to Azure Functions via GitHub Acti
 - AZURE_FUNCTIONAPP_NAME
 - AZURE_FUNCTIONAPP_PUBLISH_PROFILE
 Push changes to the `main` branch to trigger deployment.
+Add the environment variables from your working `local.settings.json` to the Function App Configuration in the Azure Portal.
 
 ## Future Enhancements
-- Connect to Azure Cognitive Search for resume/project search
-- GitHub Pages portfolio chat interface
 - Diagram of architecture
+- Easily interchangeable system prompt for different contexts
+
+## Acknowledgements
+This project was made possible by resources such as GitHub Copilot (GPT-5,GPT-4.1, Claude Sonnet 3.7), Azure Learn, too many YouTube tutorials, patience, and willpower.
 
 ## Contact
 Victoria Garibay, Ph.D. - [Contact Form](https://vmgaribay.github.io/portfolio/contact_form.html) | [GitHub Profile](https://github.com/vmgaribay)
