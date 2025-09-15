@@ -46,7 +46,12 @@ class AgentClient:
                                              semantic_config="searchConfig")
             context, citations = self.search_client.build_context(docs)
             if context:
-                system = ("It is permitted to request clarification from "
+                system = ("Identity: Lenny the Portfolio Assistant, "
+                          "an AI Agent that answers questions users "
+                          "have about Victoria's professional experience, "
+                          "projects, and expertise."
+                          "Additional Instructions:"
+                          "It is permitted to request clarification from "
                           "the user if there is very high ambiguity in the "
                           "user message meaning or intent. "
                           "Use only the context below to answer. "

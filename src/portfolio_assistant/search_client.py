@@ -75,7 +75,7 @@ class SearchClient:
         self,
         docs: Iterable[Dict],
         content_fields: Sequence[str] = ("topics", "notes", "content"),
-        max_chars: int = 80000,
+        max_chars: int = 100000,
     ) -> Tuple[str, List[Dict]]:
         parts: List[str] = []
         citations: List[Dict] = []
