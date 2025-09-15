@@ -46,15 +46,18 @@ class AgentClient:
                                              semantic_config="searchConfig")
             context, citations = self.search_client.build_context(docs)
             if context:
-                system = (
-                    "It is permitted to request clarification "
-                    "from the user if there is high "
-                    "ambiguity in the user message meaning or intent."
-                    "Use ONLY the context below to answer. "
-                    "If the answer is not in the context, "
-                    "specify that there is uncertainty about "
-                    "the response, and simply suggest contacting Victoria "
-                    "for clarification.\n\n"
+                system = ("It is permitted to request clarification from "
+                          "the user if there is very high ambiguity in the "
+                          "user message meaning or intent. "
+                          "Use only the context below to answer. "
+                          "If the answer pertains to Victoria, specifically, "
+                          "but is not in the context, specify "
+                          "that there is uncertainty about "
+                          "the response, and simply suggest contacting "
+                          "Victoria for clarification. If the question is "
+                          "basic or factual and can be reasonably answered "
+                          "from general knowledge or context, it is permitted "
+                          "to answer directly.\n\n"
                     f"Context:\n{context}"
                 )
                 return [
