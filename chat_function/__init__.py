@@ -7,6 +7,7 @@ import logging
 import json
 from azure.functions import HttpRequest, HttpResponse
 from portfolio_assistant.agent_client import AgentClient
+from portfolio_assistant.search_client import SearchClient
 from portfolio_assistant.utils import configure_logging
 
 configure_logging()
@@ -48,7 +49,7 @@ def main(req: HttpRequest) -> HttpResponse:
                 mimetype="application/json"
             )
 
-        agent_client = AgentClient()
+        agent_client = AgentClient(search_client=SearchClient())
         ai_response = agent_client.ask(user_message, conversation_id)
 
         return HttpResponse(

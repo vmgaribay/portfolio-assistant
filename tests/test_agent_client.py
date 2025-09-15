@@ -4,9 +4,9 @@ import requests
 from portfolio_assistant.agent_client import AgentClient
 
 def test_init_with_args():
-    client = AgentClient(endpoint="https://custom-endpoint", api_key="custom-key")
-    assert client.endpoint == "https://custom-endpoint"
-    assert client.api_key == "custom-key"
+    client = AgentClient(endpoint="https://test-endpoint", api_key="test-key")
+    assert client.endpoint == "https://test-endpoint"
+    assert client.api_key == "test-key"
 
 def test_init_missing_key():
     with pytest.raises(ValueError):

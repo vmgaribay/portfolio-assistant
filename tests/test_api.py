@@ -19,6 +19,11 @@ class MockRequest:
 def test_api_success(mock_ask, monkeypatch):
     monkeypatch.setenv("AZURE_CHAT_AGENT_ENDPOINT", "https://test-endpoint")
     monkeypatch.setenv("AZURE_CHAT_API_KEY", "test-key")
+    monkeypatch.setenv("AZURE_SEARCH_ENDPOINT", "https://test-endpoint")
+    monkeypatch.setenv("AZURE_SEARCH_API_KEY", "test-key")
+    monkeypatch.setenv("AZURE_SEARCH_INDEX_NAME", "test-index")
+    monkeypatch.setenv("AZURE_SEARCH_API_VERSION", "test-version")
+
 
     mock_ask.return_value = {"reply": "Hmmm, I hear she is pretty bad at sports!"}
 
