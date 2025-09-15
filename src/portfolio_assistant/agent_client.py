@@ -58,8 +58,7 @@ class AgentClient:
                           "basic or factual and can be reasonably answered "
                           "from general knowledge or context, it is permitted "
                           "to answer directly.\n\n"
-                    f"Context:\n{context}"
-                )
+                          f"Context:\n{context}")
                 return [
                     {"role": "system", "content": system},
                     {"role": "user", "content": user_message},
