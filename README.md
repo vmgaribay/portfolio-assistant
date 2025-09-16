@@ -9,18 +9,21 @@ This is a conversational assistant developed to answer questions about my portfo
 ├── .github/workflows/ # GitHub Actions pipeline  
 │ └── deploy.yml  
 ├── ChatFunction/ # Azure Function entrypoint  
-│ ├── __init__.py  
+│ ├── \_\_init\_\_.py  
 │ └── function.json  
 ├── src/portfolio_assistant/  
 │ ├── agent_client.py # Client for Azure AI Foundry chat agent  
 │ ├── config.py  
 │ ├── utils.py   
-│ ├── search_client.py # (Added feature coming soon!)  
-│ └── __init__.py  
+│ ├── search_client.py # (Added feature in main branch!)  
+│ └── \_\_init\_\_.py  
 └── tests/ # Unit tests (pytest)  
 ├── test_agent_client.py  
 ├── test_api.py  
-└── test_search_client.py # (Added feature coming soon!)  
+└── test_search_client.py
+
+## Architecture
+![Architecture Diagram](images/Architecture%20Diagram-Chat%20Only.png)
 
 ## Setup Instructions
 ```bash
@@ -70,7 +73,6 @@ Push changes to the `main` branch to trigger deployment.
 ## Future Enhancements
 - Connect to Azure Cognitive Search for resume/project search (now in main branch!)
 - GitHub Pages portfolio chat interface
-- Diagram of architecture
 
 ## Acknowledgements
 This project was made possible by resources such as GitHub Copilot (GPT-5, GPT-4.1, Claude Sonnet 3.7), Azure Learn, too many YouTube tutorials, patience, and willpower.
