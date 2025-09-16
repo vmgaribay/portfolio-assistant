@@ -1,6 +1,6 @@
 # Portfolio Assistant
 
-This is a conversational assistant developed to answer questions about my portfolio and qualifications. It utilizes Azure Functions, Python, Azure AI Search, and Azure AI Foundry and is deployed via GitHub Actions.
+This is a conversational assistant developed to answer questions about my portfolio and qualifications. It utilizes Azure Functions, Python, Azure AI Search, and Azure AI Foundry and is deployed via GitHub Actions. for a version without Azure AI Search, please see the `chat-only` branch.
 
 ## Project Structure
 ├── host.json # Azure Functions host configuration  
@@ -21,6 +21,9 @@ This is a conversational assistant developed to answer questions about my portfo
 ├── test_agent_client.py  
 ├── test_api.py  
 └── test_search_client.py 
+
+## Architecture
+![Architecture Diagram](images/Architecture%20Diagram.png)
 
 ## Setup Instructions
 ```bash
@@ -76,11 +79,10 @@ Push changes to the `main` branch to trigger deployment.
 Add the environment variables from your working `local.settings.json` to the Function App Configuration in the Azure Portal.
 
 ## Future Enhancements
-- Diagram of architecture
 - Easily interchangeable system prompt for different contexts
 
 ## Acknowledgements
-This project was made possible by resources such as GitHub Copilot (GPT-5,GPT-4.1, Claude Sonnet 3.7), Azure Learn, too many YouTube tutorials, patience, and willpower.
+This project was made possible by resources such as GitHub Copilot (GPT-5, GPT-4.1, Claude Sonnet 3.7), Azure Learn, too many YouTube tutorials, patience, and willpower.
 
 ## Contact
 Victoria Garibay, Ph.D. - [Contact Form](https://vmgaribay.github.io/portfolio/contact_form.html) | [GitHub Profile](https://github.com/vmgaribay)
